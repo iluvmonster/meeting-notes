@@ -35,8 +35,11 @@ func checkErr(e error) {
 }
 
 func processTemplateData(meetingName, attendees string) string {
-	templateData := strings.Replace(TEMPLATE, "name", meetingName, 1)
-	templateData = strings.Replace(templateData, "date", time.Now().Format("2006-01-02 15:04:05"), 1)
+	templateData := strings.Replace(
+		strings.Replace(TEMPLATE, "name", meetingName, 1),
+		"date",
+		time.Now().Format("2006-01-02 15:04:05"),
+		1)
 	return templateData
 }
 
